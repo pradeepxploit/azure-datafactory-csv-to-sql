@@ -27,7 +27,7 @@ We upload any data in Azure Blob storage,our goal is to trigger an schedule Azur
 - Then I created a **Container** inside Blob Storage **csvcontainer**.
 - After that, I uploaded our an CSV file named **students.csv** into the container.
 
-![Upload CSV to Blob Storage](./blob-storage-account-with-csv.pngg)
+![Upload CSV to Blob Storage](./blob-storage-account-with-csv.png)
 
 ---
 
