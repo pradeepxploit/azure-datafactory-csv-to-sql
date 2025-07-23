@@ -1,4 +1,4 @@
-<img width="1920" height="881" alt="image" src="https://github.com/user-attachments/assets/420e5580-a732-40b1-92d2-0b15fee277e4" /><img width="1920" height="881" alt="image" src="https://github.com/user-attachments/assets/aef7d87b-4059-42fc-bd8b-95e80e7e105e" /># Convert Unstructured Data into Structured Data
+# Convert Unstructured Data into Structured Data
 
 ## My Celebal Tech Internship Project
 
