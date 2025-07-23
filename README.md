@@ -1,18 +1,13 @@
 # Convert Unstructured Data into Structured Data
-# 🚀 Convert Unstructured Data into Structured Data using Azure Data Factory
 
-## 🧑‍💻 Internship Project
+## 🧑‍💻  My Celebal Tech Internship Project
 
 This project shows how we can change unstructured data (like a CSV file) into proper structured data (rows and columns) using **Azure Data Factory (ADF)**.
 
 ---
 
 ## 🎯 Project Goal
-
-We had a CSV file with data (like student data), stored in Azure Blob Storage.  
-Our goal was to send this data to an **Azure SQL Database**, where it can be stored in table format (structured form).
-
-We used **Azure Data Factory** to do this work step-by-step.
+We upload any data in Azure Blob storage,our goal is to trigger an schedule Azure Data Factory pipelin that convert this unstructred data into structured data in SQL database where it can be stored in table format (structured form).
 
 ---
 
@@ -22,18 +17,17 @@ We used **Azure Data Factory** to do this work step-by-step.
 - Azure Blob Storage  
 - Azure SQL Database  
 - Azure Data Factory (ADF)
-
 ---
 
 ## ✅ Step-by-Step Process
 
 ### 📁 Step 1: Upload CSV File to Blob Storage
 
-- First, we created a **Storage Account** in Azure.
-- Then we created a **Container** inside Blob Storage.
-- After that, we uploaded our **CSV file** (example: `StudentData.csv`) into the container.
+- First, I created a **Storage Account** in Azure named **pradeepgurjarstorage**.
+- Then I created a **Container** inside Blob Storage **csvcontainer**.
+- After that, I uploaded our an CSV file named **students.csv** into the container.
 
-🖼️ _Screenshot: Upload CSV to Blob Storage_
+![Upload CSV to Blob Storage](./blob-storage-account-with-csv.pngg)
 
 ---
 
