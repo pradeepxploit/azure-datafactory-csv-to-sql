@@ -1,17 +1,17 @@
-# Convert Unstructured Data into Structured Data
+<img width="1920" height="881" alt="image" src="https://github.com/user-attachments/assets/420e5580-a732-40b1-92d2-0b15fee277e4" /><img width="1920" height="881" alt="image" src="https://github.com/user-attachments/assets/aef7d87b-4059-42fc-bd8b-95e80e7e105e" /># Convert Unstructured Data into Structured Data
 
-## 🧑‍💻  My Celebal Tech Internship Project
+## My Celebal Tech Internship Project
 
 This project shows how we can change unstructured data (like a CSV file) into proper structured data (rows and columns) using **Azure Data Factory (ADF)**.
 
 ---
 
-## 🎯 Project Goal
-We upload any data in Azure Blob storage,our goal is to trigger an schedule Azure Data Factory pipelin that convert this unstructred data into structured data in SQL database where it can be stored in table format (structured form).
+## Project Goal
+We upload any data in Azure Blob storage,our goal is to trigger an schedule Azure Data Factory pipelin that convert this unstructred data into structured data in SQL database where it can be stored in table format (structured form). The specific table to be copied will be passed as a parameter during runtime.
 
 ---
 
-## 🔧 Tools Used
+## Tools Used
 
 - Azure Storage Account  
 - Azure Blob Storage  
@@ -19,7 +19,7 @@ We upload any data in Azure Blob storage,our goal is to trigger an schedule Azur
 - Azure Data Factory (ADF)
 ---
 
-## ✅ Step-by-Step Process
+## How I created this Project
 
 ### 📁 Step 1: Upload CSV File to Blob Storage
 
@@ -31,101 +31,58 @@ We upload any data in Azure Blob storage,our goal is to trigger an schedule Azur
 
 ---
 
-### 🔗 Step 2: Create Linked Service for Blob Storage
+### Step 2: Create Azure SQL Database
 
-- In Azure Data Factory, we created a new **Linked Service**.
-- This Linked Service connects ADF with our Blob Storage.
-- We selected the storage account and provided connection details.
+- After that, I created a new **Azure SQL Database** named **studentdb**.
 
-🖼️ _Screenshot: Linked Service for Blob Storage_
+![Upload CSV to Blob Storage](./sql_db.png)
 
 ---
 
-### 🗃️ Step 3: Create Dataset for CSV File (Source)
+### 🗃️ Step 3: Create Azure Data Factory & Create Pipeline
 
-- We created a **Dataset** in ADF which represents our CSV file.
-- We selected the correct container and file path.
-- We also set the file format (comma-separated).
+- I created a Azure Data Factory pipeline named BlobtoSQLPipeline.
+- I added a "Copy Data" activity to the pipeline.
 
-🖼️ _Screenshot: Dataset for CSV File_
+![Upload CSV to Blob Storage](./adf_pipeline.PNG)
 
----
+### 🧩 Step 4: Creating a New Dataset
 
-### 🧩 Step 4: Create Linked Service for Azure SQL Database
+- I craeted a new dataset selecting "Azure SQL Database" as the source named "SQLStudentDataset".
+- A new linked service is established to connect to the Azure SQL database, requiring the server name, database name, username, and password.
+- Instead of directly selecting a table name, I created parameters for both the DB name and Table name within the dataset's parameters section. These parameters are then used in the connection settings for the table.
+- In the "Copy Data" activity's source settings, the created DB name and Table name parameters are dynamically passed from the pipeline's parameters.
 
-- Now we created another **Linked Service**, this time for Azure SQL.
-- We selected our Azure SQL Database and added login details.
-- This will allow ADF to push data into the SQL table.
-
-🖼️ _Screenshot: Linked Service for Azure SQL_
+![Upload CSV to Blob Storage](./dataset.PNG)
 
 ---
 
 ### 🧾 Step 5: Create Dataset for SQL Table (Sink)
 
-- Here, we created a **Dataset** for the destination (SQL table).
-- We selected the correct table where we want to store our CSV data.
-
-🖼️ _Screenshot: Dataset for SQL Table_
+- Now I created a dataset for the sink, choosing "Azure Blob Storage" and "DelimitedText" (CSV format).
+- Alos created new linked service for the storage account.
 
 ---
 
-### 📦 Step 6: Create Pipeline with Copy Activity
+### 📦 Step 6: Created a trigger and run pipeline.
 
-- In ADF, we created a new **Pipeline**.
-- Inside the pipeline, we added a **Copy Activity**.
-- In Copy Activity:
-  - **Source**: CSV file dataset  
-  - **Sink**: Azure SQL table dataset
+- Created a trigger and run piepline.
 
-🖼️ _Screenshot: Copy Activity in Pipeline_
 
----
+### 📊 Step 7: Verify Data in Azure SQL Table
 
-### ▶️ Step 7: Run the Pipeline (Trigger)
-
-- We manually ran the pipeline to check if the data is going from Blob to SQL properly.
-- The run was successful.
-
-🖼️ _Screenshot: Pipeline run successful_
-
----
-
-### 📅 Step 8: Create Trigger for Scheduling (Optional)
-
-- If we want the pipeline to run daily or on a schedule, we can create a **Trigger**.
-- We selected the time and connected it with our pipeline.
-
-🖼️ _Screenshot: Trigger Created_
-
----
-
-### 📊 Step 9: Verify Data in Azure SQL Table
-
-- Finally, we checked the Azure SQL table.
+- Finally, I checked the Azure SQL table.
 - Our CSV data was successfully inserted as rows in the table.
 
-🖼️ _Screenshot: Azure SQL Table Output_
+![Upload CSV to Blob Storage](./dataverify.PNG)
 
----
 
-## 📌 Conclusion
-
-This project helped me understand how to:
-- Use Azure Data Factory
-- Move data between services
-- Work with Linked Services, Datasets, and Pipelines
-- Schedule tasks using triggers
-
-This was a good learning experience and is useful in real-world data handling projects.
-
----
 
 ## 📎 Project Submitted By:
 
-**Your Name:** _Pradeep Gurjar_  
-**Internship Role:** _Cybersecurity / Cloud Intern_  
-**Company:** _[Your Company Name]_  
+**Name:** _Pradeep Gurjar
+**Role:** Cloud infra & Security Intern
+**Company:** Celebal Technologies  
 **Date:** 23rd July 2025
 
 ---
